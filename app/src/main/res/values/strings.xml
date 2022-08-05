@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FireBaseAuth</string>
+    <string name="enter_your_email">Enter your Email</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="login_screen">LOGIN SCREEN</string>
+    <string name="no_account_create_one">No account?Create one!</string>
+    <string name="login_using_phone">Login using phone !!</string>
+</resources>
