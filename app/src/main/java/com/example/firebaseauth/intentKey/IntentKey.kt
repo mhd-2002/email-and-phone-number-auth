@@ -8,8 +8,7 @@ class IntentKey {
         const val otp = "OTP"
         const val resendingToken = "ResendingToken"
         const val phoneNumber = "PhoneNumber"
-        const val user_phoneNumber = "UserPhoneNumber"
-        const val phone_user_id ="phone_user_id"
+
     }
 
 }

@@ -24,7 +24,6 @@ class OTPActivity : AppCompatActivity() {
     private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
     private lateinit var phoneNumber: String
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOtpactivityBinding.inflate(layoutInflater)
@@ -36,8 +35,8 @@ class OTPActivity : AppCompatActivity() {
 
         binding.otpProgressBar.visibility = View.INVISIBLE
 
-
         auth = FirebaseAuth.getInstance()
+        binding.otpEditText1.requestFocus()
         addTextChangeListener()
         resendOTPTvVisibility()
 
@@ -67,6 +66,7 @@ class OTPActivity : AppCompatActivity() {
             resendOTPTvVisibility()
         }
 
+
     }
 
     private fun resendOTPTvVisibility() {
@@ -93,6 +93,7 @@ class OTPActivity : AppCompatActivity() {
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
 
             signInWithPhoneAuthCredential(credential)
+
         }
 
         override fun onVerificationFailed(e: FirebaseException) {
@@ -186,11 +187,8 @@ class OTPActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     message("Authenticate Successfully")
                     binding.otpProgressBar.visibility = View.VISIBLE
-                    val user = task.result?.user
 
                     val intent = Intent(this, PhoneMainActivity::class.java)
-                    intent.putExtra(IntentKey.phone_user_id , user!!.uid)
-                    intent.putExtra(IntentKey.user_phoneNumber , user.phoneNumber)
                     startActivity(intent)
 
                 } else {

@@ -5,4 +5,5 @@
     <string name="login_screen">LOGIN SCREEN</string>
     <string name="no_account_create_one">No account?Create one!</string>
     <string name="login_using_phone">Login using phone !!</string>
+    <string name="resend_otp">Resend OTP</string>
 </resources>

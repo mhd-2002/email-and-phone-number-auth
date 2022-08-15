@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 class LoginActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityLoginBinding
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -31,7 +31,6 @@ class LoginActivity : AppCompatActivity() {
 
                 val email: String = binding.etEmail.text.toString().trim { it <= ' ' }
                 val pass: String = binding.etPass.text.toString().trim { it <= ' ' }
-
 
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(email, pass)
                     .addOnCompleteListener { task ->
@@ -74,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.tvRegisterPhone.setOnClickListener {
-            val intent = Intent(this,PhoneActivity::class.java)
+            val intent = Intent(this, PhoneActivity::class.java)
             startActivity(intent)
 
         }
