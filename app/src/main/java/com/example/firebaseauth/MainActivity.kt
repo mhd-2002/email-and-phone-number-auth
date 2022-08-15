@@ -63,10 +63,36 @@ class MainActivity : AppCompatActivity() {
             return@setOnLongClickListener true
         }
 
+        binding.btDelete.setOnClickListener {
+
+            deleteData()
+        }
+
+    }
+
+    private fun deleteData() {
+        val userName = binding.etUserName.text.toString()
+
+        if (userName.isNotEmpty()) {
+
+            database = FirebaseDatabase.getInstance().getReference("Users")
+            database.child(userName).removeValue().addOnCompleteListener {
+
+                if (it.isSuccessful) {
+
+                    message("successfully Deleted!!")
+                    binding.etUserName.setText("")
+
+                } else {
+                    message("error")
+                }
+
+            }
+        }
     }
 
     @SuppressLint("SetTextI18n")
-    private fun update() {
+    private fun updateData() {
 
         val firstName = binding.etFirstName.text.toString()
         val lastName = binding.etLastName.text.toString()
@@ -143,7 +169,7 @@ class MainActivity : AppCompatActivity() {
                             binding.btSave.setOnClickListener {
 
                                 if (binding.btSave.text == "Update") {
-                                    update()
+                                    updateData()
                                 }
                             }
 
